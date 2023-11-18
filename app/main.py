@@ -22,6 +22,7 @@ log = logging.getLogger(__name__)
 @app.post("/chat")
 async def chat(request: RequestQuery):
     messages = jsonable_encoder(request.messages)
+
     log.info(f"Calling openai with {messages}")
     response = openai.ChatCompletion.create(
         model=request.engine,

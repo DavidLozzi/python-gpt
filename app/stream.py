@@ -18,6 +18,7 @@ def stream(request: RequestQuery):
 
     for chunk in response:
         print(chunk)
+        chunk.pop("id", None)
         chunk.pop("object", None)
         chunk.pop("created", None)
         chunk.pop("model", None)
